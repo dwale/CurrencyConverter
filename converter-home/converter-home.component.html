@@ -15,7 +15,6 @@ font-family: 'Roboto', sans-serif"  >
         <input matInput placeholder="" style="border: 0" [(ngModel)]="fromValue" value="{{fromValue}}">
       </mat-form-field>
     <mat-form-field style="width: 50px; text-align: right; border: 0;">
-      <!--<span matPrefix>$&nbsp;</span>-->
       <mat-select  style="border: 0" [(ngModel)]="fromCurrency" >
         <mat-option style="border: 0"  *ngFor="let currency of currencies" [(value)]="currency.id" >{{currency.id}}</mat-option>
       </mat-select>
