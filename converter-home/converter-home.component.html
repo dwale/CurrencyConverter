@@ -1,0 +1,40 @@
+<!--<ul *ngFor="let currency of currencies">-->
+<!--<li >{{currency.currencySymbol}}</li>-->
+<!--</ul>-->
+
+<mat-card class="example-card">
+  <!--<form class="example-form">-->
+    <mat-card-header style="padding-top: 30px">
+      <div mat-card-avatar class="example-header-image "  style="margin-left: 60px"></div>
+      <mat-card-title style="margin-top: 12px ">Currency Converter</mat-card-title>
+      <mat-card-subtitle > </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content  style="width: 100%">
+      <mat-form-field style="margin-top: -30px ; margin-left: 50px; width: 150px ;font-size: 50px; color: #199eff ; font-family: 'Jura', sans-serif;
+font-family: 'Roboto', sans-serif"  >
+        <input matInput placeholder="" style="border: 0" [(ngModel)]="fromValue" value="{{fromValue}}">
+      </mat-form-field>
+    <mat-form-field style="width: 50px; text-align: right; border: 0;">
+      <!--<span matPrefix>$&nbsp;</span>-->
+      <mat-select  style="border: 0" [(ngModel)]="fromCurrency" >
+        <mat-option style="border: 0"  *ngFor="let currency of currencies" [(value)]="currency.id" >{{currency.id}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-card-content>
+    <mat-card-content   class="upper" style="width: 100%">
+      <mat-progress-bar [style.display]="showSpinner ? 'block' : 'none'" mode="indeterminate"></mat-progress-bar>
+      <mat-form-field style="margin-top: -30px ; margin-left: 50px; width: 150px ;font-size: 50px; color: #fefefe ; font-family: 'Jura', sans-serif;
+font-family: 'Roboto', sans-serif"  >
+        <input matInput placeholder="" disabled value="{{ answerDisplay }}">
+      </mat-form-field>
+    <mat-form-field style="width: 50px; text-align: right;">
+      <!--<span matPrefix>$&nbsp;</span>-->
+      <mat-select  (change)="displaySelectedCurrencySymbol(currencies.id)" [(ngModel)]="toCurrency">
+        <mat-option style="border: 0" *ngFor="let currency of currencies"[(value)]="currency.id" >{{currency.id}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+      <button mat-raised-button (click)="showAnswer()" style="margin-left: 100px">Convert </button>
+    </mat-card-content >
+  <!--</form>-->
+</mat-card>
